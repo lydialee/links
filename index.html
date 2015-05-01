@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>links</title>
+    <link rel="stylesheet" href="src/styles/index.css">
+</head>
+<body>
+    <div class="content">
+        <input type="text" class="create">
+        <ul class="todos">
+            <li>
+                <input type="checkbox" >
+                <p>pick up milk</p>
+            </li>
+            <li>
+                <input type="checkbox" >
+                <p>pick up milk</p>
+            </li>
+        </ul>
+        <div class="unfold">
+            <a>10个已完成任务</a>
+        </div>
+        <ul class="done">
+            <li>
+                <input type="checkbox" checked>
+                <p>pick up milk</p>
+            </li>
+            <li>
+                <input type="checkbox" checked>
+                <p>pick up milk</p>
+            </li>
+        </ul>
+    </div>
+
+    <script src="src/scripts/jquery-1.11.2.js"></script>
+    <script src="src/scripts/Underscore.js"></script>
+    <script src="src/scripts/Backbone.js"></script>
+    <script src="src/scripts/index.js"></script>
+    <script src="template">
+        <div class="view">
+          <input class="toggle" type="checkbox" <%= done ? 'checked="checked"' : '' %> />
+          <label><%- title %></label>
+          <a class="destroy"></a>
+        </div>
+        <input class="edit" type="text" value="<%- title %>" />
+    </script>
+</body>
+</html>
+
+
+
+
+
+
