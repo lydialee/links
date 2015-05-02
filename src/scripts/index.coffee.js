@@ -1,7 +1,7 @@
 $(function() {
 
     // View define
-    var Todo = Backbone.Model.extend({
+    Todo = Backbone.Model.extend({
 
         defaults: function() {
             return {
@@ -19,11 +19,11 @@ $(function() {
     })
 
     // Collection
-    var TodoList = Backbone.Collection.extend({
+    TodoList = Backbone.Collection.extend({
 
         model: Todo,
 
-        localStorage: new Backbone.LocalStorage('todos-backbone'),  //??
+        localStorage: new Backbone.LocalStorage('todos-backbone'),  // localStorage
 
         done: function() {
             return this.where({done: true}) // where相当于filter，找出collection中所有match的对象
@@ -43,9 +43,9 @@ $(function() {
 
     })
 
-    var Todos = new TodoList
+    Todos = new TodoList
 
-    var TodoView = Backbone.View.extend({
+    TodoView = Backbone.View.extend({
         tagName: 'li',
 
         template: _.template($('#item-template').html()), // 要repeat的元素模板
@@ -80,7 +80,7 @@ $(function() {
         },
 
         close: function() {
-            var value = this.input.val()
+            value = this.input.val()
             if (!value) {
                 this.clear() // 如果没内容，删掉这条
             } else {
@@ -101,7 +101,7 @@ $(function() {
     })
 
     // our overall AppView is the top-level piece of UI
-    var AppView = Backbone.View.extend({
+    AppView = Backbone.View.extend({
         el: $('#todoapp'),
 
         statsTemplate: _.template($('#stats-template').html()),
@@ -127,8 +127,8 @@ $(function() {
         },
 
         render: function() {
-            var done = Todos.done().length
-            var remaining = Todos.remaining().length
+            done = Todos.done().length
+            remaining = Todos.remaining().length
             if (Todos.length) {
                 this.main.show()
                 this.footer.show()
@@ -140,7 +140,7 @@ $(function() {
         },
 
         addOne: function(todo) {
-            var view = new TodoView({model: todo}) // create一次：加一个view
+            view = new TodoView({model: todo}) // create一次：加一个view
             this.$('#todo-list').append(view.render().el)
         },
 
@@ -163,12 +163,12 @@ $(function() {
 
         // toggle勾选全部
         toggleAllComplete: function() {
-            var done = this.allCheckbox.checked
+            done = this.allCheckbox.checked
             Todos.each(function(todo) { todo.save({'done': done}) })
         }
     })
 
-    var App = new AppView
+    App = new AppView
 
 })
 
