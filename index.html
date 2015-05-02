@@ -6,44 +6,38 @@
     <link rel="stylesheet" href="src/styles/index.css">
 </head>
 <body>
-    <div class="content">
-        <input type="text" class="create">
-        <ul class="todos">
-            <li>
-                <input type="checkbox" >
-                <p>pick up milk</p>
-            </li>
-            <li>
-                <input type="checkbox" >
-                <p>pick up milk</p>
-            </li>
-        </ul>
-        <div class="unfold">
-            <a>10个已完成任务</a>
+    <div id="todoapp">
+        <input type="text" id="new-todo" placeholder="paste your link here...">
+        <div>
+            <input type="checkbox" id="toggle-all">
+            <label for="toggle-all">标记所有为已读</label>
+            <div id="main">
+                <ul id="todo-list"></ul>
+                <footer></footer>
+            </div>
+
         </div>
-        <ul class="done">
-            <li>
-                <input type="checkbox" checked>
-                <p>pick up milk</p>
-            </li>
-            <li>
-                <input type="checkbox" checked>
-                <p>pick up milk</p>
-            </li>
-        </ul>
     </div>
+
 
     <script src="src/scripts/jquery-1.11.2.js"></script>
     <script src="src/scripts/Underscore.js"></script>
     <script src="src/scripts/Backbone.js"></script>
+    <script src="src/scripts/backbone.localStorage.js"></script>
     <script src="src/scripts/index.js"></script>
-    <script src="template">
+    <script type="text/template" id="item-template">
         <div class="view">
           <input class="toggle" type="checkbox" <%= done ? 'checked="checked"' : '' %> />
           <label><%- title %></label>
           <a class="destroy"></a>
         </div>
         <input class="edit" type="text" value="<%- title %>" />
+    </script>
+    <script type="text/template" id="stats-template">
+        <% if (done) { %>
+          <a id="clear-completed">Clear <%= done %> readed <%= done == 1 ? 'link' : 'links' %></a>
+        <% } %>
+        <div class="todo-count"><b><%= remaining %></b> <%= remaining == 1 ? 'link' : 'links' %> left</div>
     </script>
 </body>
 </html>
