@@ -5,6 +5,6 @@
  - python
  - coffee
  - backbone
-    refer to: (http://backbonejs.org/docs/todos.html)
-    backbone Storage: (https://github.com/jeromegn/Backbone.localStorage)
+     - refer to: (http://backbonejs.org/docs/todos.html)
+     - backbone Storage: (https://github.com/jeromegn/Backbone.localStorage)
 
