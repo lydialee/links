@@ -35,7 +35,7 @@ $ ->
 
     events:
       'click .toggle': 'toggleDone' # 点击切换已做与未做状态
-      'dbclick .view': 'edit' # 双击，编辑条目
+      'dblclick .view': 'edit' # 双击，编辑条目
       'click a.destroy': 'clear' # 点击叉掉条目
       'keypress .edit': 'updateOnEnter' # 编辑条目后，回车保存
       'blur .edit': 'close' # 编辑条目的失焦保存
